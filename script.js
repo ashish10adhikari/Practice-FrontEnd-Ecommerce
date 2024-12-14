@@ -16,19 +16,16 @@ if(close){
 
 
 
-var mainImg = document.getElementById('Mainimg');
-var smallImg = document.getElementsByClassName('small-img');
+const mainImg = document.getElementById('Mainimg');
+const smallImg = document.getElementsByClassName('small-img');
 
-smallImg[0].onclick = function(){
-    mainImg.src = smallImg[0].src;
-}
-
-smallImg[1].onclick = function(){
-    mainImg.src = smallImg[1].src;
-}
-smallImg[2].onclick = function(){
-    mainImg.src = smallImg[2].src;
-}
-smallImg[3].onclick = function(){
-    mainImg.src = smallImg[3].src;
+if (smallImg.length > 0) {
+    for (let i = 0; i < smallImg.length; i++) {
+        smallImg[i].addEventListener('click', function() {
+            mainImg.src = this.src;
+        });
+    }
+} else {
+    console.error("No elements found with class 'small-img'");
+    
 }
